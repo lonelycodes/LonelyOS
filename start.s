@@ -1,6 +1,6 @@
 .extern kmain // declare kmain label as external (defined in kernel.c)
 
-.global start // declare global start label -> linker will need to know where this is. definition later in this file.
+.global entry // declare global start label -> linker will need to know where this is. definition later in this file.
 
 /* Multiboot header variables for GRUB */
 .set MB_MAGIC, 0x1BADB002                       // 'magic' number for GRUB to find us
@@ -26,8 +26,8 @@
 	stack_top:
 /* asm code to load kernel - aka entry point to the kernel*/
 .section .text
-    // start label we declared before is now defined here:
-    start:
+    // entry label we declared before is now defined here:
+    entry:
         // we want to run C code, so we must setup the stack
         mov $stack_top, %esp    // let stack pointer point to top of stack (x86: stack grows DOWN)
         call kmain              // call our main C kernel method

@@ -85,7 +85,8 @@ void term_print(char *text)
 }
 
 // the kernels main method which is called from our start.s assembly
-void kmain(){
+void kmain()
+{
     term_clear();
     term_print("Hello, world!\n");
 }
