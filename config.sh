@@ -2,11 +2,11 @@ SYSTEM_HEADER_PROJECTS="libc kernel"
 PROJECTS="libc kernel"
 
 export MAKE=${MAKE:-make}
-export HOSTSYS=$(./default-host.sh)
+export HOST=${HOST:-$(./default-host.sh)}
 
-export AR=${HOSTSYS}-ar
-export AS=${HOSTSYS}-as
-export CC=${HOSTSYS}-gcc
+export AR=${HOST}-ar
+export AS=${HOST}-as
+export CC=${HOST}-gcc
 
 export PREFIX=/usr
 export EXEC_PREFIX=$PREFIX
@@ -23,9 +23,6 @@ export CC="$CC --sysroot=$SYSROOT"
 
 # Work around that the -elf gcc targets doesn't have a system include directory
 # because it was configured with --without-headers rather than --with-sysroot.
-if echo "$HOSTSYS" | grep -Eq -- '-elf($|-)'; then
+if echo "$HOST" | grep -Eq -- '-elf($|-)'; then
   export CC="$CC -isystem=$INCLUDEDIR"
 fi
-
-
-echo $SYSROOT
