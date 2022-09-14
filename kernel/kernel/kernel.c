@@ -4,5 +4,5 @@
 
 void kernel_main(void) {
 	terminal_initialize();
-	printf("Hello, kernel World!\n");
+	printf("LonelyOS v0\n\n\n\n\n\n\n\n\n\n\n\n\tso long");
 }
