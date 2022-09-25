@@ -5,5 +5,6 @@
 
 void kernel_main(void) {
 	terminal_initialize();
-	printf("LonelyOS v0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\tso long");
+	printf("LonelyOS v0\n");
+	printf("> ");
 }
